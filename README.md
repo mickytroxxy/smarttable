@@ -8,7 +8,7 @@ ec2-13-58-254-234.us-east-2.compute.amazonaws.com:4300/
 
 so im gonna give it an identifier
 
-var api = "ec2-13-58-254-234.us-east-2.compute.amazonaws.com:4000/";
+var api = "ec2-13-58-254-234.us-east-2.compute.amazonaws.com:4300/";
 
 to log a user in use. Remember the api variable represents our main url
 

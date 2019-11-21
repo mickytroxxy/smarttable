@@ -1,14 +1,17 @@
 # smarttable
+Change all the domains to  
+# ec2-3-134-247-112.us-east-2.compute.amazonaws.com # 
+
 This is where smarttable code and info sit
 Please read carefully to understand these APIs. We still using the same concept just like last time on crustcore
 
 The main url is 
 
-ec2-13-58-254-234.us-east-2.compute.amazonaws.com:4300/
+ec2-3-134-247-112.us-east-2.compute.amazonaws.com:4300/
 
 so im gonna give it an identifier
 
-var api = "ec2-13-58-254-234.us-east-2.compute.amazonaws.com:4300/";
+var api = "ec2-3-134-247-112.us-east-2.compute.amazonaws.com:4300/";
 
 to log a user in use. Remember the api variable represents our main url
 

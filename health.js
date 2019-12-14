@@ -29,3 +29,8 @@ baseUrl/getPractitioners/specialization/latitude/latitude/longitude/longitude
 //setup appointment
 baseUrl/setAppointment/fileNo/patientName/patientName/contact/contact/reason/reason/preferredTime/preferredTime/practitionerId/practitionerId
 //returns bolean, true for success, false for error
+
+//Login use 
+
+baseUrl/patientLogin/patientEmail/patientPassword/patientPassword
+//returns json data

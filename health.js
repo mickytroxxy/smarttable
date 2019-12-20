@@ -22,8 +22,16 @@ The above url returns json data
 baseUrl/getAllPractitioners
 //returns json data
 
-//get practitioners
-baseUrl/getPractitioners/specialization/latitude/latitude/longitude/longitude
+//get practitioners By city
+baseUrl/getPractitionersByCity/specialization/country/country/city/city
+//returns json data
+
+//get practitioner By Email
+baseUrl/getPractitionerByEmail/emailAddress
+//returns json data
+
+//get practitioners By distance
+baseUrl/getPractitionersByDistance/specialization/latitude/latitude/longitude/longitude
 //returns json data
 
 //setup appointment

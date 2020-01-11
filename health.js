@@ -42,3 +42,15 @@ baseUrl/setAppointment/fileNo/patientName/patientName/contact/contact/reason/rea
 
 baseUrl/patientLogin/patientEmail/patientPassword/patientPassword
 //returns json data
+
+//get all my appointments
+baseUrl/getMyAppointments/fileNo
+//returns json data
+
+//get police posts/warnings
+baseUrl/getPolicePosts/latitude/longitude/longitude
+//returns json data
+
+//post a tip of to the nearest police... About tip of could be rape, fraud, robbery etc. SendBy police will only be saved on our database but it wont be published to the police
+/postTipOf/latitude/longitude/longitude/aboutTipOf/aboutTipOf/details/details/location/location/timeSend/timeSend/sendBy/sendBy
+//returns json data

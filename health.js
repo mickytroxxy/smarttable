@@ -54,3 +54,16 @@ baseUrl/getPolicePosts/latitude/longitude/longitude
 //post a tip of to the nearest police... About tip of could be rape, fraud, robbery etc. SendBy police will only be saved on our database but it wont be published to the police
 /postTipOf/latitude/longitude/longitude/aboutTipOf/aboutTipOf/details/details/location/location/timeSend/timeSend/sendBy/sendBy
 //returns json data
+
+//get all emergency services
+/getEmergencyAllServices
+// returns json data
+
+
+//get emergency service by category
+/getEmergencyServicesByCategory/subCategory
+//return json data
+
+//update emergency service location with this api
+/updateLocation/regId/latitude/latitude/longitude/longitude
+// returns bolean

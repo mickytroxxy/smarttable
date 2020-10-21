@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Pay Less, Talk more</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="theme-color" content="#2196f3">
+    <link rel="icon" href="images/republicans-removebg.png">
+    <link rel="stylesheet" href="css/framework7.material.css">
+    <link rel="stylesheet" href="css/framework7.material.colors.css">
+    <link href="http://fonts.googleapis.com/css?family=Roboto:400,300,500,700" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="css/material-icons.css">
+    <link rel="stylesheet" type="text/css" href="css/fontawesome-all.min.css">
+    <link rel="stylesheet" href="css/kitchen-sink.css">
+    <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/socket.js"></script>
+</head>
+<body>
+<div class="views">
+    <div class="view view-main">
+        <div class="popover login-option">
+			<div class="popover-inner">
+				<div class="list-block">
+					<ul>
+						<li><a href="#" class="list-button item-link close-popover login-btn" title="staff" style="font-size:12px;">STAFF LOGIN</a></li>
+						<li><a href="#" class="list-button item-link close-popover login-btn" title="client" style="font-size:12px;">CLIENT LOGIN</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="popover claim-option">
+			<div class="popover-inner">
+				<div class="list-block">
+					<ul>
+						<li><a href="#" class="list-button item-link close-popover approve-claim-btn" title="staff" style="font-size:12px;">Approve</a></li>
+						<li><a href="#" class="list-button item-link close-popover decline-claim-btn" title="client" style="font-size:12px;">Decline</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="popover profile-more-option">
+			<div class="popover-inner">
+				<div class="list-block">
+					<ul>
+						<li><a href="#" class="list-button item-link close-popover com-web-btn" style="font-size:16px;">Profile</a></li>
+						<li><a href="#" class="list-button item-link close-popover com-act-btn" title="activate" style="font-size:16px;">Settings</a></li>
+						<li><a href="#" class="list-button item-link close-popover log-out-btn" title="suspend" style="font-size:16px;">Log Out</a></li>
+
+					</ul>
+				</div>
+			</div>
+		</div>
+        <div class="pages navbar-fixed">
+            <div data-page="login-page" class="page show-stars">
+                <div id='stars'></div>
+		        <div id='stars2'></div>
+		        <div id='stars3'></div>
+                <div class="navbar" style="background: #ffffff;">
+                    <div class="navbar-inner">
+                        <div class="left"><a href="index.html" class="back link icon-only"><i class="icon icon-back color-black"></i></a></div>
+                        <div class="center" style="color: #757575; font-weight: bolder;font-size: 16px;">PLACE YOUR ORDER</div>
+                        <div class="right"><a href="#" style="margin-right: 10px;color:green;font-size:18px;font-weight:bold;" class="total-cost-div">R 0.00</a></div>
+                    </div>
+                </div>
+                <div class="page-content">
+                	<div class="row">
+                		<div class="tablet-25 col-100"></div>
+	                	<div class="tablet-50 col-100">
+	                		<div class="card" style="border-radius: 5px;box-shadow: none;background: #e9eaed;">
+        						<div class="list-block card no-hairlines" style="border-radius:20px;box-shadow:none;background: #e9eaed;">
+									<ul><li>
+										<div class="item-content">
+											<div class="item-media"><i class="material-icons color-teal">account_circle</i></div>
+											<div class="item-inner">
+												<div class="item-title">GET A QUOTE</div>
+												<div class="item-after"><i class='material-icons color-teal'>person_add</i></div>
+											</div>
+										</div>
+									</li></ul>
+								</div>
+								<div class="list-block no-hairlines">
+									<ul class="no-hairlines">
+										<li class="card" style="border-radius:10px;box-shadow:none;">
+											<div class="item-content">
+												<div class="item-inner">
+													<div class="item-title">SETUP FEE</div>
+													<div class="item-after color-black" style="color: black;font-weight: bold;">R 2 499.99</div>
+												</div>
+											</div>
+										</li>
+									</ul>
+									<ul class="no-hairlines">
+										<li class="card" style="border-radius:10px;box-shadow:none;">
+											<a href="#" class="item-link smart-select">
+												<select class='buy-airtime-input option-goBack' oldAirtime="NO">
+													<option value="NO">NO</option>
+												</select>
+												<div class="item-content">
+													<div class="item-inner">
+														<div class="item-title">BUY AIRTIME (R)</div>
+													</div>
+												</div>
+											</a>
+										</li>	
+									</ul>
+									<ul>
+										<li class="card" style="border-radius:10px;box-shadow:none;">
+											<a href="#" class="item-link smart-select">
+												<select class='select-gender-input option-goBack'>
+													<option value="YES">YES</option>
+													<option value="NO">NO</option>
+												</select>
+												<div class="item-content">
+													<div class="item-inner">
+														<div class="item-title">ORDER AN IP PHONE</div>
+													</div>
+												</div>
+											</a>
+										</li>
+									</ul>
+								</div>
+								<div class="scrolling-wrapper"><center></center></div>
+								<form class="list-block inputs-list" style="background: #ffffff;padding-bottom: 10px;">
+									<ul>
+										<li>
+											<div class="item-content">
+												<div class="item-media"><i class="icon material-icons color-blue">person_outline</i></div>
+												<div class="item-inner">
+													<div class="floating-label">FULL NAME</div>
+													<div class="item-input">
+														<input type="text" class="client-fname-input" />
+													</div>
+												</div>
+											</div>
+										</li>
+										<li>
+											<div class="item-content">
+												<div class="item-media"><i class="icon material-icons color-blue">location_on</i></div>
+												<div class="item-inner">
+													<div class="floating-label">PHYSICAL ADDRESS</div>
+													<div class="item-input">
+														<input type="text" class="client-address-input" />
+													</div>
+												</div>
+											</div>
+										</li>
+										<li>
+											<div class="item-content">
+												<div class="item-media"><i class="icon material-icons color-blue">mail</i></div>
+												<div class="item-inner">
+													<div class="floating-label">EMAIL OR PHONE NUMBER</div>
+													<div class="item-input">
+														<input type="email" class="client-email-input" />
+													</div>
+												</div>
+											</div>
+										</li>
+									</ul>
+									<center><a href="#" class="button button-fill color-green place-order-btn" style="width: 200px;">PLACE ORDER</a></center>		
+								</form>
+        					</div>
+	                	</div>
+	                	<div class="tablet-25 col-100"></div>
+                	</div>
+                </div>
+            </div>
+            <!--Main page-->
+            <div data-page="main-page" class="page cached">
+                <div class="navbar" style="background: #ffffff;">
+                    <div class="navbar-inner">
+                        <div class="center"><img src="images/politics_home.png" style="height:50px; margin-top:10px;"></div>
+                        <div class="right">
+                        	<a href="#" class="button"><i class="material-icons color-gray" style="font-size: 30px;">home</i></a>
+                        	<a href="#" class="button"><i class="material-icons color-gray" style="font-size: 28px;margin-top: 2px;">comment</i></a>
+                        	<a href="#" class="button"><i class="material-icons color-gray" style="font-size: 28px;margin-top: 2px;">group</i></a>
+                        	<a href="#" class="button"><i class="material-icons color-gray" style="font-size: 30px;">settings</i></a>
+                        	<a href="#" class="button color-teal open-popover header-show-fname" data-popover=".profile-more-option" style="font-weight: bold;"></a>
+                        	<a href="#" class="button open-popover" data-popover=".profile-more-option"><i class="material-icons color-orange" style="font-size: 36px;">account_circle</i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="page-content" style="background: url(images/bg.png);background-size: 100%;">
+                	<div class="row" style="margin-top: 10px;">
+                		<div class="col-100 tablet-5"></div>
+                		<div class="col-100 tablet-80" style="background: #e9eaed;border-radius: 5px;padding-bottom: 20px;">
+                			<div class="row">
+                				<div class="col-100 tablet-25 hide-on-mobile">1</div>
+                				<div class="col-100 tablet-50" style="background: #ffffff;border-radius: 5px; margin-top: 5px;">
+                					<div class="inputs-list list-block">
+                						<ul>
+                							<li class="align-top">
+									          <div class="item-content">
+									            <div class="item-media"><i class="icon material-icons">chat_bubble_outline</i></div>
+									            <div class="item-inner"> 
+									              <div class="item-title floating-label">What's On Your Mind?</div>
+									              <div class="item-input">
+									                <textarea class="resizable"></textarea>
+									              </div>
+									            </div>
+									          </div>
+									        </li>
+                						</ul>
+                					</div>
+                					<div class="content-block">
+                						<div class="row" style="margin-top: -30px;background: #e9eaed;border-radius: 5px;">
+	                						<div class="col-30"><a href="#" class="button"><i class="material-icons color-cyan" style="font-size: 36px;">add_a_photo</i></a></div>
+	                						<div class="col-30"><center><a href="#" class="button"><i class="material-icons color-cyan" style="font-size: 32px;margin-top: 3px;">video_library</i></a></center></div>
+	                					<div class="col-30"><a href="#" class="button"><i class="material-icons color-cyan" style="font-size: 40px;color: #b01c35;">videocam</i></a></div>
+	                					</div>
+                					</div>
+                				</div>
+                				<div class="col-100 tablet-25 hide-on-mobile">
+                					<div class="list-block card no-hairlines" style="border-radius:5px;box-shadow:none;">
+										<ul><li>
+											<div class="item-content">
+												<div class="item-inner">
+													<div class="item-title">FOLLOWERS</div>
+													<div class="item-after"><i class='material-icons color-teal'>group_work</i></div>
+												</div>
+											</div>
+										</li></ul>
+									</div>
+                				</div>
+                			</div>
+                		</div>
+                		<div class="col-100 tablet-5"></div>
+                	</div>
+                </div>
+            </div>
+            <!--MAIN PAGE ENDS HERE-->
+            <!--ALL USERS PAGE-->
+            <div data-page="categories" class="page cached">
+                <div class="navbar">
+                    <div class="navbar-inner">
+                        <div class="left"><a href="index.html" class="back link icon-only"><i class="icon icon-back"></i></a></div>
+                        <div class="center" style="color: #757575; font-weight: bolder;">VIEW OR ADD ITEMS</div>
+                        <div class="right"><a href="#" style="margin-right: 10px;" class="button button-fill color-teal username-btn"></a></div>
+                    </div>
+                </div>
+                <div class="page-content" >
+                	<div class="row">
+                		<div class="col-100 tablet-25 sidebar">
+                			<div class="overview-header"></div>
+                			<div class="card">
+                				<center><h2 style="color: #757575; font-weight: bold;">ADD NEW ITEM</h2></center>
+                			</div>
+                			<form class="list-block inputs-list staff-inputs hidden-form-category" style="width: 98%; margin-left: 1%;">
+								<ul style="padding-bottom: 10px;">
+									<li>
+										<div class="item-content">
+											<div class="item-media"><i class="icon material-icons">local_dining</i></div>
+											<div class="item-inner">
+												<div class="floating-label">ITEM NAME</div>
+												<div class="item-input">
+													<input type="text" class="item-name-input" />
+												</div>
+											</div>
+										</div>
+									</li>
+									<li>
+										<div class="item-content">
+											<div class="item-media"><i class="icon material-icons">local_atm</i></div>
+											<div class="item-inner">
+												<div class="floating-label">ITEM PRICE</div>
+												<div class="item-input">
+													<input type="text" class="item-price-input" />
+												</div>
+											</div>
+										</div>
+									</li>
+									<li>
+										<div class="item-content">
+											<div class="item-media"><i class="icon material-icons">blur_on</i></div>
+											<div class="item-inner">
+												<div class="floating-label">ITEM QUANTITY</div>
+												<div class="item-input">
+													<input type="number" class="item-quantity-input" />
+												</div>
+											</div>
+										</div>
+									</li>
+									<li>
+										<div class="item-content">
+											<div class="item-media"><i class="icon material-icons">line_style</i></div>
+											<div class="item-inner">
+												<div class="floating-label">ITEM DESCRIPTION</div>
+												<div class="item-input">
+													<input type="text" class="item-des-input" />
+												</div>
+											</div>
+										</div>
+									</li>
+									<div class="content-block preview-item-image"></div>
+									<center>
+	            						<a href="#" class="button browse-file-btn" style="width: 150px;color: #757575;background: #ffff;border-radius: 10px;border: 1px solid teal;margin: 20px;">BROWSE ITEM</a>
+	            						<input type="file" class="hiddenFileInput" style="display: none;">
+	            					</center>
+									<center>
+	            						<a href="#" class="button button-fill color-teal save-item-btn" style="width: 200px;">SAVE ITEM</a>
+	            					</center>
+	            					
+								</ul>		
+							</form>
+                		</div>
+                		<div class="col-100 tablet-70">
+                			<div class="list-block">
+                				<ul><li style="background: #e9eaed;">
+						          <div class="item-content">
+						            <div class="item-media"><i class="material-icons color-teal">local_dining</i></div>
+						            <div class="item-inner"> 
+						              <div class="item-title show-item-header">ALL ITEMS UNDER</div>
+						              <div class="item-after mini-add-btn" id="add-client-page"><i class="material-icons color-teal" style="font-size: 36px;">local_bar</i></div>
+						            </div>
+						          </div>
+						        </li></ul>
+                			</div>
+                			<div class="content-block display-items-ul">
+                				
+                			</div>
+                		</div>
+                	</div>
+                </div>
+            </div>
+            <!--CATEGORIES-->
+            <div data-page="store-registration-page" class="page cached">
+                <div class="navbar">
+                    <div class="navbar-inner">
+                    	<div class="left"><a href="index.html" class="back link icon-only"><i class="icon icon-back"></i></a></div>
+                        <div class="center" style="color: #757575; font-weight: bolder;">REGISTER STORE</div>
+                        <div class="right"><a href="#" style="margin-right: 10px;" class="button button-fill color-cyan username-btn"></a></div>
+                    </div>
+                </div>
+                <div class="page-content" >
+                	<div class="row">
+                		<div class="col-20"></div>
+                		<div class="col-100 tablet-60">
+            				<div class="list-block">
+                				<ul><li style="background: #e9eaed;">
+						          <div class="item-content">
+						            <div class="item-media"><i class="material-icons color-cyan">add</i></div>
+						            <div class="item-inner"> 
+						              <div class="item-title">STORE REGISTRATION</div>
+						              <div class="item-after"><i class="material-icons color-cyan" style="font-size: 36px; cursor: pointer;">add_circle_outline</i></div>
+						            </div>
+						          </div>
+						        </li></ul>
+                			</div>
+            				<div class="content-block card" style="padding-bottom: 20px;">
+            					<div class="row">
+            						<div class="col-50">
+            							<form class="list-block inputs-list staff-inputs" style="padding: 0px; margin: 0px;">
+											<ul>
+												<li>
+													<div class="item-content">
+														<div class="item-media"><i class="icon material-icons">person_outline</i></div>
+														<div class="item-inner">
+															<div class="floating-label">ADMIN FULL NAME</div>
+															<div class="item-input">
+																<input type="text" class="admin-fname" />
+															</div>
+														</div>
+													</div>
+												</li>
+												<li>
+													<div class="item-content">
+														<div class="item-media"><i class="icon material-icons">email</i></div>
+														<div class="item-inner">
+															<div class="floating-label">ADMIN EMAIL</div>
+															<div class="item-input">
+																<input type="text" class="admin-email-input" />
+															</div>
+														</div>
+													</div>
+												</li>
+												<li>
+													<div class="item-content">
+														<div class="item-media"><i class="icon material-icons">lock</i></div>
+														<div class="item-inner">
+															<div class="floating-label">PASSWORD</div>
+															<div class="item-input">
+																<input type="password" class="admin-password-input" />
+															</div>
+														</div>
+													</div>
+												</li>
+												<li>
+													<div class="item-content">
+														<div class="item-media"><i class="icon material-icons">lock</i></div>
+														<div class="item-inner">
+															<div class="floating-label">VERIFY PASSWORD</div>
+															<div class="item-input">
+																<input type="password" class="admin-password-again" />
+															</div>
+														</div>
+													</div>
+												</li>
+											</ul>
+										</form>
+            						</div>
+            						<div class="col-50">
+            							<form class="list-block inputs-list staff-inputs" style="padding: 0px; margin: 0px;">
+											<ul>
+												<li>
+													<div class="item-content">
+														<div class="item-media"><i class="icon material-icons">email</i></div>
+														<div class="item-inner">
+															<div class="floating-label">STORE NAME</div>
+															<div class="item-input">
+																<input type="text" class="store-name-input" />
+															</div>
+														</div>
+													</div>
+												</li>
+												<li>
+													<div class="item-content">
+														<div class="item-media"><i class="icon material-icons">phone</i></div>
+														<div class="item-inner">
+															<div class="floating-label">PHONE NUMBER</div>
+															<div class="item-input">
+																<input type="number" class="store-phone-input" />
+															</div>
+														</div>
+													</div>
+												</li>
+												<li>
+													<div class="item-content">
+														<div class="item-media"><i class="icon material-icons">location_on</i></div>
+														<div class="item-inner">
+															<div class="floating-label">PHYSICAL ADDRESS</div>
+															<div class="item-input">
+																<input type="text" class="store-address-input" />
+															</div>
+														</div>
+													</div>
+												</li>
+												<li>
+													<div class="item-content">
+														<div class="item-media"><i class="icon material-icons">dehaze</i></div>
+														<div class="item-inner">
+															<div class="floating-label">STORE DESCRIPTION</div>
+															<div class="item-input">
+																<input type="text" class="store-des-input" />
+															</div>
+														</div>
+													</div>
+												</li>
+											</ul>
+										</form>
+            						</div>
+            					</div>
+            					<div class="content-block">
+	            					<center>
+	            						<a href="#" class="button button-fill color-cyan register-admin-btn" style="width: 200px;">PROCEED</a>
+	            					</center>
+	            				</div>
+            				</div>
+            				
+                		</div>
+                		<div class="col-20"></div>
+                	</div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</div>
+</body>
+<script type="text/javascript" src="js/framework7.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
+</html>
+<!--
+hg91-FZLI
+
+196.43.213.55:8442/account.html
+-->
+
+

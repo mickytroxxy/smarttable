@@ -5,10 +5,9 @@ var io      =     require("socket.io")(http);
 var nodemailer = require('nodemailer');
 var mkdirp = require('mkdirp');
 var upload = require("express-fileupload");
-//var request = require('request');
-//var OneSignal = require('onesignal-node');
 app.use(upload());
 app.use('/files',require("express").static(__dirname + '/files'));
+app.use('../ais_new',require("express").static(__dirname + '../ais_new'));
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
   res.header('Access-Control-Allow-Methods', 'DELETE, PUT, POST, GET');
@@ -32,11 +31,6 @@ var connection    =    mysql.createPool({
 });
 io.sockets.on('connection', function (socket) {
   console.log('a user has connected client '+socket.id);
-  socket.on("getShopCategories", function(shopId,cb){
-    connection.query('SELECT DISTINCT category FROM items WHERE shopId=?', [shopId],function(err,result){
-      cb(result);
-    });
-  })
   socket.on("getRecent",function(cb){
     connection.query('SELECT * FROM client_details ORDER BY RAND() LIMIT 10',[],function(error,result){
       if (!error) {
@@ -52,13 +46,32 @@ io.sockets.on('connection', function (socket) {
     });
   });
   socket.on("saveClient",function(fname,lname,cellNo,regNo,vehicleMake,branch,cb){
-    var Key_Ref = regNo.slice(0,3) + Math.floor(Math.random()*8999+1000);
-    connection.query('INSERT INTO client_details SET ?', {Fisrt_Name:fname,Last_Name:lname,Cell_number:cellNo,Reg_No:regNo,Make:vehicleMake,branch:branch,Key_Ref:Key_Ref}, function (err, results, fields) {
-      if (!err) {
-        cb(Key_Ref)
-      }else{
-        cb(false);
-        console.log(err);
+    connection.query('SELECT * FROM client_details ORDER BY id DESC LIMIT 1',[],function(error,result){
+      if (!error) {
+        var lastKeyRef = result[0].id;
+        var filter = /^[0-9-+]+$/;
+        if (filter.test(lastKeyRef)){
+          var Key_Ref = parseFloat(lastKeyRef.substring(2, lastKeyRef.length)) + 1;
+        }else{
+          var Key_Ref = parseFloat(lastKeyRef.substring(3, lastKeyRef.length)) + 1;
+        }
+        if (branch=="MAG SELBY") {
+          var prefix = "MS";
+        }else if (branch=="MAG LONGMEADOW") {
+          var prefix = "MS";
+        }else if (branch=="MAG THE GLEN CUSTOMS") {
+          var prefix = "MGC";
+        }else if (branch=="MAG THE GLEN EASTCLIFF") {
+          var prefix = "MG";
+        }
+        Key_Ref = prefix + Key_Ref;
+        connection.query('INSERT INTO client_details SET ?', {Fisrt_Name:fname,Last_Name:lname,Cell_number:cellNo,Reg_No:regNo,Make:vehicleMake,branch:branch,Key_Ref:Key_Ref}, function (err, results, fields) {
+          if (!err) {
+            cb(Key_Ref)
+          }else{
+            cb(false);
+          }
+        });
       }
     });
   });
@@ -102,9 +115,6 @@ io.sockets.on('connection', function (socket) {
         console.log("Its done baba");
       }else{
         cb(false);
-        console.log(err);
-        //http://192.168.0.185:8080/mag_qoutation/mag_snapshot/security_images/MS1005091/A1%20license%20Disk-07-20-09-34-37.jpg
-        //http://192.168.0.185:2000/images/mag_security/MS1009428/A3%20Bonnet-10-19-07-42-08.jpg
       }
     });
   });
@@ -146,22 +156,6 @@ app.post("/upload",function(req,res){
           console.log("100% uploaded");
         }
       });
-    });
-  }
-});
-app.post("/uploadFile111",function(req,res){
-  console.log("About to upload files...");
-  if (req.files) {
-    console.log(req.files)
-    var file=req.files.fileUrl;
-    var filePath=req.body.filePath;
-    file.mv("./"+filePath,function(err){
-      if (err) {
-        console.log(err);
-      }else{
-        res.send("success");
-        console.log("100% uploaded");
-      }
     });
   }
 });

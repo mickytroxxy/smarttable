@@ -1,0 +1,55 @@
+{
+  "name": "AIS SNAPSHOT",
+  "displayName": "AIS SNAPSHOT",
+  "expo": {
+    "name": "AIS SNAPSHOT",
+    "slug": "aissnapshot",
+    "version": "2.0.4",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#000000"
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "bundleIdentifier": "com.magsnapshotie.api",
+      "supportsTablet": true,
+      "buildNumber": "1.0.2",
+      "infoPlist": {
+        "NSCameraUsageDescription": "Allow AIS SNAPSHOT to take photos for uploads",
+        "NSLocationWhenInUseUsageDescription": "Allow AIS SNAPSHOT to take photos for uploads",
+        "NSLocationAlwaysAndWhenInUseUsageDescription": "Allow AIS SNAPSHOT to take photos for uploads",
+        "NSLocationAlwaysUsageDescription": "Allow AIS SNAPSHOT to take photos for uploads"
+      }
+    },
+    "android": {
+      "package": "com.magsnapshot.api",
+      "permissions": [
+        "CAMERA",
+        "WRITE_EXTERNAL_STORAGE",
+        "ACCESS_COARSE_LOCATION",
+        "ACCESS_FINE_LOCATION",
+        "RECORD_VIDEO",
+        "RECORD_AUDIO",
+        "LOCATION",
+        "READ_EXTERNAL_STORAGE"
+      ],
+      "versionCode": 2005,
+      "useNextNotificationsApi": true,
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#FFFFFF"
+      }
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    }
+  }
+}
